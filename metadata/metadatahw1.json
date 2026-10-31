@@ -1,0 +1,40 @@
+{
+    "dataset_name": "BTCUSDT Hourly Market Data",
+    "source": "Binance",
+    "source_type": "public database",
+    "symbol": "BTCUSDT",
+    "time_interval": "1 hour",
+    "observation": "One hourly BTCUSDT candle",
+    "target": "future_return_1h",
+
+    "columns": {
+        "open_time": "Opening timestamp of the hourly candle",
+        "open": "Opening BTC price in USDT",
+        "high": "Highest BTC price during the hour in USDT",
+        "low": "Lowest BTC price during the hour in USDT",
+        "close": "Closing BTC price in USDT",
+        "volume": "Total BTC volume traded during the hour",
+        "taker_buy_volume": "BTC volume from taker buy trades during the hour"
+    },
+
+    "derived_features": {
+        "return_1h": "Percentage price change from the previous hour",
+        "volatility_24h": "Standard deviation of the previous 24 hourly returns",
+        "taker_buy_ratio": "Taker buy volume divided by total volume"
+    },
+
+    "data_cleaning": [
+        "Removed unused Binance columns",
+        "Converted open_time from Unix milliseconds to datetime",
+        "Checked for missing values",
+        "Checked for duplicate rows",
+        "Checked data types",
+        "Checked for physically invalid price and volume values"
+    ],
+
+    "units": {
+        "price": "USDT",
+        "volume": "BTC",
+        "time": "datetime"
+    }
+}
